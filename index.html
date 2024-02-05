@@ -117,7 +117,7 @@
 
       
 
-            <button class="click">Submit &#10132;</button>
+            <button class="click" onclick="audio.play();">Submit &#10132;</button>
             <!-- <input type="submit" class="click" placeholder="&#10132;"> -->
             
            
@@ -135,7 +135,9 @@
           .then(response => alert("Thank you for your response "))
           .then(() => {window.location.reload();})
           .catch(error => console.error('Error!',error.massage))
-        })
+        });
+        const audio = new Audio();
+        audio.src="/bakchodi-mat-kar-laude.mp3";
       </script>
     <br>
 </body>
