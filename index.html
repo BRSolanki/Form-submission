@@ -4,105 +4,12 @@
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Form</title>
-	<style>
-        *{
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif
-        }
-
-        body{
-            background-color: #e8e8e8;
-        }
-
-        .content{
-            text-align: center;
-            display: flex
-            position: relative;
-           
-        }
-
-        form{
-            display: flex;
-			flex-direction: column;
-            position: relative;
-            overflow: hidden;
-            background-color: #eeeeee;
-            padding: 20px 30px;
-            overflow: hidden;
-            width: 332px;
-            border-radius: 15px;
-            top: 10px;
-            border: 1px solid rgb(141, 141, 141);
-            top: 30px;
-            position: relative;
-            
-            
-            
-
-        }
-        label{
-            /* left: -90px; */
-            text-align: left;
-            margin: 10px;
-            position: relative;
-        }
-
-        input{
-            padding: 10px 15px;
-            width: 332px;
-            margin-bottom: 0px;
-            border-radius: 6px;
-            border: 1px solid rgb(119, 119, 119);
-            display: flex;
-            position: relative;
-           
-            
-        }
-
-        .click{
-            margin: 10px;
-            background-color: rgb(4, 162, 4);
-            color: #fff;
-            border: none;
-            font-size: 15px;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 6px;
-            margin: 5px;
-            width: 346px;
-            cursor: pointer;
-
-        }
-
-        .click:hover{
-            background-color: rgb(5, 134, 5);
-        }
-
-        textarea{
-            padding: 10px 15px;
-            width: 322px;
-            height: 50px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            border: 1px solid rgb(122, 121, 121);
-            position: relative;
-
-        }
-
-        .line{
-            font-size: 10px;
-            color: rgb(33, 33, 33);
-            margin: 6px;
-        }
-	   video{
-	     hidden
-	  align-content: center ;
-	  
-	   }
-	</style>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="script.js">
 </head>
 <body>
+
+  </div>
 	<div class="content">
         <center>
         <form method="post" action="https://api.sheetmonkey.io/form/9PKFnX1pVMJpSNEz4hEApt" name="info" id="info">
@@ -121,17 +28,31 @@
 
       
 
-            <button class="click" onclick="audio.play();">Submit &#10132;</button>
+            <button class="click" onclick="audio.play(); openPopup();" type="button">Submit &#10132;</button>
             <!-- <input type="submit" class="click" placeholder="&#10132;"> -->
           
            
 
         </form>
-        </center>
-      
+        
+        <div class="popup" id="popup">
+
+    <img src="/VID-20240205-WA0004.gif" alt="">
+
+    <h2>Thank you For Submit!</h2>
+    <p>Your Details is submitted successfully</p>
+    <button type="button" onclick="closePopup();">Ok</button>
+  </div>
+    
     </div>
-    <script>
+
+    <br>
+        
+
+<script>
+
         const scriptURL = 'https://api.sheetmonkey.io/form/9PKFnX1pVMJpSNEz4hEApt'
+
         const form = document.forms['info']
         form.addEventListener('submit', e => {
           e.preventDefault()
@@ -142,9 +63,18 @@
         });
         const audio = new Audio();
         audio.src="/bakchodi-mat-kar-laude.mp3";
+        
+      let popup = document.getElementById("popup");
       
-      </script>
-    <br>
+      function openPopup(){
+        popup.classList.add("open-popup");
+      };
+      
+      function closePopup(){
+        popup.classList.remove("open-popup");
+
+      };
+     </script>
 </body>
 </html>
 
